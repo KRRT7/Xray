@@ -1,0 +1,46 @@
+---
+alwaysApply: true
+---
+
+This rule file is intentionally **not** an API reference. Keep API details in `../docs/index.md` and use this file for usage conventions/patterns.
+
+## safe decorator
+
+Use `@safe` on functions that may fail. Never construct `Ok()`/`Err()` inside a `@safe` function — just return or raise.
+
+```python
+@safe
+def load(path: str) -> dict:
+    return json.loads(Path(path).read_text())
+
+load("data.json")  # Ok({"key": "val"}) or Err(error=FileNotFoundError(...))
+```
+
+Use `@safe_method` for instance methods (forwards `self`).
+
+## Composing Results
+
+Inside a `@safe` function, `.unwrap()` inner Results to propagate failures without branching:
+
+```python
+@safe
+def pipeline(path: str) -> Report:
+    data = load(path).unwrap()       # Err propagates as exception
+    return process(data).unwrap()
+```
+
+## Stream pipelines
+
+Use `Stream.from_iterable()` for multi-step transforms. List comprehensions for single-step.
+
+```python
+Stream.from_iterable(items).map(transform).filter(predicate).collect()
+```
+
+When filtering/unwrapping `Stream[Result[T]]`, prefer the helpers (see `../docs/index.md`).
+
+If you need to “fail fast” a stream of results, prefer `Stream.sequence()` instead of collecting and branching manually.
+
+## Either monad
+
+Prefer `Either` when both branches are “normal values”. Prefer `Result` when failures are exceptions.

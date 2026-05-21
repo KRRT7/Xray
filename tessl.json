@@ -1,0 +1,9 @@
+{
+  "name": "xray",
+  "mode": "vendored",
+  "dependencies": {
+    "agent-forge/danom": {
+      "version": "0.14.3"
+    }
+  }
+}

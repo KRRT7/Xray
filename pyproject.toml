@@ -1,0 +1,10 @@
+[project]
+name = "xray"
+version = "0.1.0"
+description = "X-Ray Performance Laboratory"
+readme = "README.md"
+requires-python = ">=3.14"
+
+[project.urls]
+Source = "https://github.com/KRRT7/xray"
+Website = "https://krrt7.dev"
