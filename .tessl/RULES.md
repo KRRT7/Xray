@@ -1,7 +1,7 @@
 # Agent Rules
 
-This file is updated when running `tessl install`. If a linked file is missing, make sure to run the command to download any missing tiles from the registry.
+This file is updated when running `tessl install`. If a linked file is missing, make sure to run the command to download any missing plugins from the registry.
 
 ## agent-forge/danom — danom-patterns
 
-@tiles/agent-forge/danom/rules/danom-patterns.md [danom-patterns](tiles/agent-forge/danom/rules/danom-patterns.md)
+@plugins/agent-forge/danom/rules/danom-patterns.md [danom-patterns](plugins/agent-forge/danom/rules/danom-patterns.md)
