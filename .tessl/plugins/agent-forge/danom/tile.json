@@ -1,18 +1,11 @@
 {
   "name": "agent-forge/danom",
-  "version": "0.14.3",
+  "version": "0.14.4",
   "summary": "Functional programming primitives for Python: Result monad (Ok/Err), Either monad (Right/Left), Stream pipelines, @safe decorator, new_type, compose, and predicate combinators.",
   "private": true,
-  "describes": "pkg:pypi/danom@0.14.1",
-  "docs": "docs/index.md",
   "rules": {
     "danom-patterns": {
       "rules": "rules/danom-patterns.md"
-    }
-  },
-  "skills": {
-    "using-danom": {
-      "path": "skills/using-danom/SKILL.md"
     }
   }
 }
